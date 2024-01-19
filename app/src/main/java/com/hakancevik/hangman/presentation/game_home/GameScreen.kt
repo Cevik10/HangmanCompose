@@ -23,6 +23,7 @@ import androidx.compose.material3.CardColors
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CardElevation
 
+
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -38,18 +39,26 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.hakancevik.hangman.R
 import com.hakancevik.hangman.presentation.game_home.components.HangmanBody
 import com.hakancevik.hangman.ui.theme.HangmanTheme
+import dagger.hilt.android.lifecycle.HiltViewModel
 import java.util.Locale
 
 @Composable
 fun GameScreen(
     navController: NavController,
     selectedLanguage: String,
+    viewModel: GameViewModel = GameViewModel()
 ) {
+
+    // Observe the UI state using collectAsState
+    val uiState: HangmanUIState by viewModel.uiState.collectAsStateWithLifecycle()
+
     val context = LocalContext.current
 
     changeLanguage(context, selectedLanguage)
