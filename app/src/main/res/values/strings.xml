@@ -1,15 +1,16 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <string name="app_name">Hangman</string>
 
     <string-array name="hangman_words">
         <item>programming</item>
         <item>android</item>
+        <item>bil kelimeyi</item>
         <!-- Add more English words as needed -->
     </string-array>
 
 
-    <string-array name="alphabet_array">
+    <string-array name="alphabet_array" tools:ignore="InconsistentArrays">
         <item>a</item>
         <item>b</item>
         <item>c</item>
