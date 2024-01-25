@@ -1,37 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-
-    <string name="category_animal">Animal</string>
-    <string name="category_body_part">Body Part</string>
-    <string name="category_country">Country</string>
-    <string name="category_color">Color</string>
-    <string name="category_profession">Profession</string>
-    <string name="category_sport">Sport</string>
-    <string name="category_vehicle">Vehicle</string>
-    <string name="category_music_genre">Music Genre</string>
-    <string name="category_movie_genre">Movie Genre</string>
-    <string name="category_food">Food</string>
-    <string name="category_fruit">Fruit</string>
-    <string name="category_weather">Weather</string>
-    <string name="category_instrument">Instrument</string>
-    <string name="category_emotion">Emotion</string>
+    <string name="category_animal">حيوان</string>
+    <string name="category_body_part">جزء من الجسم</string>
+    <string name="category_country">بلد</string>
+    <string name="category_color">لون</string>
+    <string name="category_profession">مهنة</string>
+    <string name="category_sport">رياضة</string>
+    <string name="category_vehicle">مركبة</string>
+    <string name="category_music_genre">نوع موسيقي</string>
+    <string name="category_movie_genre">نوع فيلم</string>
+    <string name="category_food">طعام</string>
+    <string name="category_fruit">فاكهة</string>
+    <string name="category_weather">طقس</string>
+    <string name="category_instrument">آلة موسيقية</string>
+    <string name="category_emotion">عاطفة</string>
 
     <string-array name="all_categories">
-        <item>Animal</item>
-        <item>Country</item>
-        <item>Color</item>
-        <item>Profession</item>
-        <item>Sport</item>
-        <item>Vehicle</item>
-        <item>Music Genre</item>
-        <item>Movie Genre</item>
-        <item>Food</item>
-        <item>Fruit</item>
-        <item>Body Part</item>
-        <item>Weather</item>
-        <item>Instrument</item>
-        <item>Emotion</item>
+        <item>حيوان</item>
+        <item>بلد</item>
+        <item>لون</item>
+        <item>مهنة</item>
+        <item>رياضة</item>
+        <item>مركبة</item>
+        <item>نوع موسيقي</item>
+        <item>نوع فيلم</item>
+        <item>طعام</item>
+        <item>فاكهة</item>
+        <item>جزء من الجسم</item>
+        <item>طقس</item>
+        <item>آلة موسيقية</item>
+        <item>عاطفة</item>
     </string-array>
 
 
@@ -228,59 +227,60 @@
     </string-array>
 
 
+    <string name="app_name">لعبة الشنغمان</string>
+    <string name="PLAY_BUTTON">ابدأ</string>
+    <string name="SETTINGS_BUTTON">الإعدادات</string>
+    <string name="PLAY_AGAIN_BUTTON_DIALOG">ابدأ من جديد</string>
+    <string name="QUIT_GAME_BUTTON_DIALOG">انسحب</string>
+    <string name="GAME_OVER_TEXT_DIALOG">انتهت اللعبة!</string>
+    <string name="REVEAL_WORD_TEXT_DIALOG">"كان الكلمة:\n%s"</string>
+    <string name="TIP_TEXT">"نصيحة: %s"</string>
+    <string name="WIN_COUNT_TEXT">النجاحات: %d</string>
+    <string name="SHOW_HOW_MANY_HITS">سلسلة النجاح:\n%d</string>
+    <string name="QUIT_GAME_CONFIRMATION_TEXT_TITLE">العودة إلى الصفحة الرئيسية؟</string>
+    <string name="QUIT_GAME_CONFIRMATION_TEXT_DESCRIPTION">ستخسر اللعبة الحالية</string>
+    <string name="YES_TEXT">نعم</string>
+    <string name="NO_TEXT">لا</string>
+    <string name="INSTRUCTIONS_TITLE">التعليمات</string>
+    <string name="GO_BACK_TEXT">العودة</string>
+    <string name="DIALOG_TIP_TITLE">نصيحة</string>
+    <string name="DIALOG_TIP_TEXT">إذا لم تتناسب الكلمة مع الشاشة، يمكنك سحبها أفقيًا أو اللعب في وضع العرض الأفقي!</string>
+    <string name="QUIT_HOME_TITLE">هل تريد مغادرة اللعبة؟</string>
 
 
-
-
-    <string name="app_name">Hangman</string>
-    <string name="PLAY_BUTTON">Play</string>
-    <string name="SETTINGS_BUTTON">Settings</string>
-    <string name="PLAY_AGAIN_BUTTON_DIALOG">Play Again</string>
-    <string name="QUIT_GAME_BUTTON_DIALOG">Quit</string>
-    <string name="GAME_OVER_TEXT_DIALOG">Game Over!</string>
-    <string name="REVEAL_WORD_TEXT_DIALOG">"The word was:\n%s"</string>
-    <string name="TIP_TEXT">"Tip: %s"</string>
-    <string name="WIN_COUNT_TEXT">Hits: %d</string>
-    <string name="SHOW_HOW_MANY_HITS">Hit streak:\n%d</string>
-    <string name="QUIT_GAME_CONFIRMATION_TEXT_TITLE">Go to home?</string>
-    <string name="QUIT_GAME_CONFIRMATION_TEXT_DESCRIPTION">You will lose you current game</string>
-    <string name="YES_TEXT">Yes</string>
-    <string name="NO_TEXT">No</string>
-    <string name="INSTRUCTIONS_TITLE">Instructions </string>
-    <string name="GO_BACK_TEXT">Return</string>
-    <string name="DIALOG_TIP_TITLE">Tip</string>
-    <string name="DIALOG_TIP_TEXT">If the word doesn\'t fit on the screen, you can drag it horizontally or play in landscape mode!</string>
-    <string name="QUIT_HOME_TITLE">Leave game?</string>
 
 
 
     <string-array name="alphabet_array" tools:ignore="InconsistentArrays">
-        <item>a</item>
-        <item>b</item>
-        <item>c</item>
-        <item>d</item>
-        <item>e</item>
-        <item>f</item>
-        <item>g</item>
-        <item>h</item>
-        <item>i</item>
-        <item>j</item>
-        <item>k</item>
-        <item>l</item>
-        <item>m</item>
-        <item>n</item>
-        <item>o</item>
-        <item>p</item>
-        <item>q</item>
-        <item>r</item>
-        <item>s</item>
-        <item>t</item>
-        <item>u</item>
-        <item>v</item>
-        <item>w</item>
-        <item>x</item>
-        <item>y</item>
-        <item>z</item>
+        <item>ا</item>
+        <item>ب</item>
+        <item>ت</item>
+        <item>ث</item>
+        <item>ج</item>
+        <item>ح</item>
+        <item>خ</item>
+        <item>د</item>
+        <item>ذ</item>
+        <item>ر</item>
+        <item>ز</item>
+        <item>س</item>
+        <item>ش</item>
+        <item>ص</item>
+        <item>ض</item>
+        <item>ط</item>
+        <item>ظ</item>
+        <item>ع</item>
+        <item>غ</item>
+        <item>ف</item>
+        <item>ق</item>
+        <item>ك</item>
+        <item>ل</item>
+        <item>م</item>
+        <item>ن</item>
+        <item>ه</item>
+        <item>و</item>
+        <item>ي</item>
     </string-array>
+
 
 </resources>

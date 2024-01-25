@@ -87,15 +87,26 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:$nav_version")
 
 
+
+
     //Dagger - Hilt
 //    implementation("com.google.dagger:hilt-android:2.38.1")
 //    kapt("com.google.dagger:hilt-android-compiler:2.37")
 //    implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
 //    kapt("androidx.hilt:hilt-compiler:1.0.0")
 
-    // Dagger + Hilt
-    implementation ("com.google.dagger:hilt-android:2.43.2")
-    kapt ("com.google.dagger:hilt-android-compiler:2.43.2")
+     //Dagger + Hilt
+    implementation ("com.google.dagger:hilt-android:2.44")
+    kapt ("com.google.dagger:hilt-android-compiler:2.44")
+
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1")
+
+
+    //implementation ("com.google.dagger:hilt-android:2.44")
+    //kapt ("androidx.hilt:hilt-compiler:2.44.2")
+    //implementation ("androidx.hilt:hilt-navigation-compose:1.1.0")
+
 
 
 }

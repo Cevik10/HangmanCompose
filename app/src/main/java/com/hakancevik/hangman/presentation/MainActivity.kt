@@ -1,5 +1,7 @@
 package com.hakancevik.hangman.presentation
 
+import android.content.Context
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -23,12 +25,16 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.hakancevik.hangman.R
 import com.hakancevik.hangman.presentation.game_home.GameScreen
 import com.hakancevik.hangman.presentation.select_language.SelectLanguageScreen
 import com.hakancevik.hangman.presentation.select_language.components.LanguageRadioButton
 import com.hakancevik.hangman.presentation.util.Screen
 import com.hakancevik.hangman.ui.theme.HangmanTheme
+import dagger.hilt.android.AndroidEntryPoint
+import java.util.Locale
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,15 +57,25 @@ class MainActivity : ComponentActivity() {
                                     name = "selectedLanguage"
                                 ) {
                                     type = NavType.StringType
-                                    defaultValue = "English"
+                                    defaultValue = "en"
                                 }
                             )
                         ) {
-                            val selectedLanguage = it.arguments?.getString("selectedLanguage") ?: "English"
+                            val selectedLanguage = it.arguments?.getString("selectedLanguage") ?: "en"
                             GameScreen(
                                 navController = navController,
-                                selectedLanguage = selectedLanguage
+                                selectedLanguage = selectedLanguage,
+                                onPopBack = { false },
+                                onNavigateUp = {}
                             )
+
+
+                            SetLocale(selectedLanguage,this@MainActivity)
+
+
+
+
+
                         }
                     }
                 }
@@ -69,6 +85,15 @@ class MainActivity : ComponentActivity() {
 }
 
 
+fun SetLocale(languageCode: String, context: Context) {
+    val locale = Locale(languageCode)
+    Locale.setDefault(locale)
+
+    val resources = context.resources
+    val configuration = Configuration(resources.configuration)
+    configuration.setLocale(locale)
+    resources.updateConfiguration(configuration, resources.displayMetrics)
+}
 
 @Composable
 fun LanguageButton(letter: Char, onLetterClick: (Char) -> Unit) {
@@ -93,7 +118,7 @@ fun LanguageButton(letter: Char, onLetterClick: (Char) -> Unit) {
 @Composable
 fun GreetingPreview() {
     HangmanTheme {
-        LanguageRadioButton("turkish", Icons.Default.Check, false, onSelected = {})
+
     }
 }
 

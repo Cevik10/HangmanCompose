@@ -1,14 +1,239 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <string name="app_name">Hangman</string>
 
-    <string-array name="hangman_words">
-        <item>turkish </item>
-        <item>turkish ww</item>
-        <item>herkese selam ww</item>
-        <!-- Add more English words as needed -->
+    <string name="category_animal">Hayvan</string>
+    <string name="category_body_part">Vücut Parçası</string>
+    <string name="category_country">Ülke</string>
+    <string name="category_color">Renk</string>
+    <string name="category_profession">Meslek</string>
+    <string name="category_sport">Spor</string>
+    <string name="category_vehicle">Araç</string>
+    <string name="category_music_genre">Müzik Türü</string>
+    <string name="category_movie_genre">Film Türü</string>
+    <string name="category_food">Yiyecek</string>
+    <string name="category_fruit">Meyve</string>
+    <string name="category_weather">Hava Durumu</string>
+    <string name="category_instrument">Enstrüman</string>
+    <string name="category_emotion">Duygu</string>
+
+    <string-array name="all_categories">
+        <item>Hayvan</item>
+        <item>Ülke</item>
+        <item>Renk</item>
+        <item>Meslek</item>
+        <item>Spor</item>
+        <item>Araç</item>
+        <item>Müzik Türü</item>
+        <item>Film Türü</item>
+        <item>Yiyecek</item>
+        <item>Meyve</item>
+        <item>Vücut Parçası</item>
+        <item>Hava Durumu</item>
+        <item>Enstrüman</item>
+        <item>Duygu</item>
     </string-array>
+
+
+    <string-array name="words_animal">
+        <item>kedi</item>
+        <item>köpek</item>
+        <item>fil</item>
+        <item>zürafa</item>
+        <item>aslan</item>
+        <item>kaplan</item>
+        <item>ayı</item>
+        <item>zebra</item>
+        <item>maymun</item>
+        <item>hipopotam</item>
+        <item>kanguru</item>
+        <item>penguen</item>
+        <item>timsah</item>
+    </string-array>
+
+    <string-array name="words_body_part">
+        <item>baş</item>
+        <item>omuz</item>
+        <item>diz</item>
+        <item>ayak parmağı</item>
+    </string-array>
+
+    <string-array name="words_country">
+        <item>Afganistan</item>
+        <item>Arnavutluk</item>
+        <item>Cezayir</item>
+        <item>Arjantin</item>
+        <item>Avustralya</item>
+        <item>Avusturya</item>
+        <item>Azerbaycan</item>
+        <item>Bangladeş</item>
+        <item>Belçika</item>
+        <item>Bolivya</item>
+        <item>Brezilya</item>
+        <item>Bulgaristan</item>
+        <item>Kanada</item>
+        <item>Şili</item>
+        <item>Çin</item>
+    </string-array>
+
+    <string-array name="words_color">
+        <item>kırmızı</item>
+        <item>mavi</item>
+        <item>yeşil</item>
+        <item>sarı</item>
+        <item>mor</item>
+        <item>turuncu</item>
+        <item>pembe</item>
+        <item>siyah</item>
+        <item>beyaz</item>
+    </string-array>
+
+    <string-array name="words_profession">
+        <item>doktor</item>
+        <item>öğretmen</item>
+        <item>mühendis</item>
+        <item>aşçı</item>
+        <item>aktör</item>
+        <item>pilot</item>
+        <item>müzisyen</item>
+        <item>avukat</item>
+    </string-array>
+
+    <string-array name="words_sport">
+        <item>futbol</item>
+        <item>basketbol</item>
+        <item>tenis</item>
+        <item>beysbol</item>
+        <item>voleybol</item>
+        <item>yüzme</item>
+        <item>golf</item>
+        <item>kayak</item>
+    </string-array>
+
+    <string-array name="words_vehicle">
+        <item>araba</item>
+        <item>motorsiklet</item>
+        <item>bisiklet</item>
+        <item>otobüs</item>
+        <item>kamyon</item>
+        <item>tren</item>
+        <item>helikopter</item>
+        <item>tekne</item>
+        <item>metro</item>
+        <item>uçak</item>
+        <item>scooter</item>
+    </string-array>
+
+    <string-array name="words_music_genre">
+        <item>pop</item>
+        <item>rock</item>
+        <item>caz</item>
+        <item>hip-hop</item>
+        <item>rap</item>
+        <item>country</item>
+        <item>blues</item>
+        <item>klasik</item>
+        <item>reggae</item>
+        <item>elektronik</item>
+        <item>indie</item>
+        <item>halk</item>
+    </string-array>
+
+    <string-array name="words_movie_genre">
+        <item>aksiyon</item>
+        <item>komedi</item>
+        <item>drama</item>
+        <item>gerilim</item>
+        <item>korku</item>
+        <item>bilim kurgu</item>
+        <item>belgesel</item>
+        <item>romantik</item>
+    </string-array>
+
+    <string-array name="words_food">
+        <item>pizza</item>
+        <item>hamburger</item>
+        <item>sushi</item>
+        <item>makarna</item>
+        <item>biftek</item>
+        <item>dondurma</item>
+        <item>salata</item>
+        <item>köri</item>
+        <item>burrito</item>
+    </string-array>
+
+    <string-array name="words_fruit">
+        <item>elma</item>
+        <item>muz</item>
+        <item>kiraz</item>
+        <item>portakal</item>
+        <item>üzüm</item>
+        <item>karpuz</item>
+        <item>çilek</item>
+    </string-array>
+
+    <string-array name="words_weather">
+        <item>güneşli</item>
+        <item>bulutlu</item>
+        <item>yağmurlu</item>
+        <item> rüzgarlı</item>
+        <item>fırtınalı</item>
+        <item>karlı</item>
+        <item>sisli</item>
+        <item>dolu fırtınası</item>
+        <item>tornado</item>
+        <item>kar fırtınası</item>
+        <item>çiseleme</item>
+    </string-array>
+
+    <string-array name="words_instrument">
+        <item>gitar</item>
+        <item>piano</item>
+        <item>davul</item>
+        <item>keman</item>
+        <item>saksafon</item>
+        <item>trampet</item>
+        <item>flüt</item>
+        <item>klarnet</item>
+        <item>akordeon</item>
+        <item>harmonika</item>
+    </string-array>
+
+    <string-array name="words_emotion">
+        <item>mutlu</item>
+        <item>üzgün</item>
+        <item>sinirli</item>
+        <item>heyecanlı</item>
+        <item>korkmuş</item>
+        <item>şaşırmış</item>
+        <item>sakin</item>
+        <item>memnun</item>
+        <item>minnettar</item>
+        <item>nostaljik</item>
+        <item> düşünceli</item>
+    </string-array>
+
+
+    <string name="app_name">Adam Asmaca</string>
+    <string name="PLAY_BUTTON">Oyna</string>
+    <string name="SETTINGS_BUTTON">Ayarlar</string>
+    <string name="PLAY_AGAIN_BUTTON_DIALOG">Tekrar Oyna</string>
+    <string name="QUIT_GAME_BUTTON_DIALOG">Çık</string>
+    <string name="GAME_OVER_TEXT_DIALOG">Oyun Bitti!</string>
+    <string name="REVEAL_WORD_TEXT_DIALOG">"Kelime şuydu:\n%s"</string>
+    <string name="TIP_TEXT">"İpucu: %s"</string>
+    <string name="WIN_COUNT_TEXT">Seri: %d</string>
+    <string name="SHOW_HOW_MANY_HITS">Seri sayısı:\n%d</string>
+    <string name="QUIT_GAME_CONFIRMATION_TEXT_TITLE">Ana ekrana git?</string>
+    <string name="QUIT_GAME_CONFIRMATION_TEXT_DESCRIPTION">Mevcut oyunun kaybolacak</string>
+    <string name="YES_TEXT">Evet</string>
+    <string name="NO_TEXT">Hayır</string>
+    <string name="INSTRUCTIONS_TITLE">Nasıl Oynanır</string>
+    <string name="GO_BACK_TEXT">Geri Dön</string>
+    <string name="DIALOG_TIP_TITLE">İpucu</string>
+    <string name="DIALOG_TIP_TEXT">Eğer kelime ekrana sığmazsa, yatay olarak kaydırabilir ya da yatay modda oynayabilirsin!</string>
+    <string name="QUIT_HOME_TITLE">Oyundan Çık?</string>
+
 
 
     <string-array name="alphabet_array" tools:ignore="InconsistentArrays">

@@ -1,6 +1,5 @@
 package com.hakancevik.hangman.presentation.select_language
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -11,14 +10,11 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.selection.selectableGroup
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccountBox
-import androidx.compose.material.icons.filled.Call
-import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -29,12 +25,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.SolidColor
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.hakancevik.hangman.R
 import com.hakancevik.hangman.presentation.select_language.components.LanguageRadioButton
 import com.hakancevik.hangman.presentation.util.Screen
 import com.hakancevik.hangman.ui.theme.HangmanTheme
@@ -45,7 +40,7 @@ fun SelectLanguageScreen(
     navController: NavController,
 ) {
     var selectedLanguage by remember { mutableStateOf<String?>("en") }
-    val context = LocalContext.current
+
 
     Column(
         modifier = Modifier
@@ -57,21 +52,21 @@ fun SelectLanguageScreen(
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(8.dp)
-                .clip(shape = RoundedCornerShape(20.dp))
                 .selectableGroup()
-                .border(BorderStroke(2.dp, SolidColor(Color.White)))
+                .padding(16.dp)
+                .clip(MaterialTheme.shapes.medium)
+                .border(2.dp, Color.White, MaterialTheme.shapes.medium)
         ) {
             LanguageRadioButton(
                 language = "English",
-                flagIcon = Icons.Default.AccountBox,
+                flagImageResId = R.drawable.usa,
                 isSelected = selectedLanguage == "en"
             ) {
                 selectedLanguage = "en"
             }
             LanguageRadioButton(
                 language = "Español",
-                flagIcon = Icons.Default.Call,
+                flagImageResId = R.drawable.spain,
                 isSelected = selectedLanguage == "es"
             ) {
                 selectedLanguage = "es"
@@ -79,7 +74,7 @@ fun SelectLanguageScreen(
 
             LanguageRadioButton(
                 language = "Turkish",
-                flagIcon = Icons.Default.Call,
+                flagImageResId = R.drawable.turkey,
                 isSelected = selectedLanguage == "tr"
             ) {
                 selectedLanguage = "tr"
@@ -87,10 +82,18 @@ fun SelectLanguageScreen(
 
             LanguageRadioButton(
                 language = "Deutsch",
-                flagIcon = Icons.Default.Face,
+                flagImageResId = R.drawable.germany,
                 isSelected = selectedLanguage == "de"
             ) {
                 selectedLanguage = "de"
+            }
+
+            LanguageRadioButton(
+                language = "Arabic",
+                flagImageResId = R.drawable.arabic,
+                isSelected = selectedLanguage == "ar"
+            ) {
+                selectedLanguage = "ar"
             }
 
             // Add more languages as needed

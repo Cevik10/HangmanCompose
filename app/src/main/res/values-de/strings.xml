@@ -1,14 +1,239 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <string name="app_name">Hangman</string>
+    <string name="category_animal">Tier</string>
+    <string name="category_body_part">Körperteil</string>
+    <string name="category_country">Land</string>
+    <string name="category_color">Farbe</string>
+    <string name="category_profession">Beruf</string>
+    <string name="category_sport">Sport</string>
+    <string name="category_vehicle">Fahrzeug</string>
+    <string name="category_music_genre">Musikgenre</string>
+    <string name="category_movie_genre">Filmgenre</string>
+    <string name="category_food">Essen</string>
+    <string name="category_fruit">Frucht</string>
+    <string name="category_weather">Wetter</string>
+    <string name="category_instrument">Instrument</string>
+    <string name="category_emotion">Emotion</string>
 
-    <string-array name="hangman_words">
-        <item>german</item>
-        <item>germany</item>
-        <item>heil hitler</item>
-        <!-- Add more English words as needed -->
+    <string-array name="all_categories">
+        <item>Tier</item>
+        <item>Land</item>
+        <item>Farbe</item>
+        <item>Beruf</item>
+        <item>Sport</item>
+        <item>Fahrzeug</item>
+        <item>Musikgenre</item>
+        <item>Filmgenre</item>
+        <item>Essen</item>
+        <item>Frucht</item>
+        <item>Körperteil</item>
+        <item>Wetter</item>
+        <item>Instrument</item>
+        <item>Emotion</item>
     </string-array>
+
+    <string-array name="words_animal">
+        <item>Katze</item>
+        <item>Hund</item>
+        <item>Elefant</item>
+        <item>Giraffe</item>
+        <item>Löwe</item>
+        <item>Tiger</item>
+        <item>Bär</item>
+        <item>Zebra</item>
+        <item>Affe</item>
+        <item>Flusspferd</item>
+        <item>Känguru</item>
+        <item>Pinguin</item>
+        <item>Krokodil</item>
+    </string-array>
+
+    <string-array name="words_body_part">
+        <item>Kopf</item>
+        <item>Schulter</item>
+        <item>Knie</item>
+        <item>Zeh</item>
+    </string-array>
+
+    <string-array name="words_country">
+        <item>Afghanistan</item>
+        <item>Albanien</item>
+        <item>Algerien</item>
+        <item>Argentinien</item>
+        <item>Australien</item>
+        <item>Österreich</item>
+        <item>Aserbaidschan</item>
+        <item>Bangladesch</item>
+        <item>Belgien</item>
+        <item>Bolivien</item>
+        <item>Brasilien</item>
+        <item>Bulgarien</item>
+        <item>Kanada</item>
+        <item>Chile</item>
+        <item>China</item>
+    </string-array>
+
+    <string-array name="words_color">
+        <item>Rot</item>
+        <item>Blau</item>
+        <item>Grün</item>
+        <item>Gelb</item>
+        <item>Lila</item>
+        <item>Orange</item>
+        <item>Rosa</item>
+        <item>Schwarz</item>
+        <item>Weiß</item>
+    </string-array>
+
+    <string-array name="words_profession">
+        <item>Arzt</item>
+        <item>Lehrer</item>
+        <item>Ingenieur</item>
+        <item>Koch</item>
+        <item>Schauspieler</item>
+        <item>Pilot</item>
+        <item>Musiker</item>
+        <item>Anwalt</item>
+    </string-array>
+
+    <string-array name="words_sport">
+        <item>Fußball</item>
+        <item>Basketball</item>
+        <item>Tennis</item>
+        <item>Baseball</item>
+        <item>Volleyball</item>
+        <item>Schwimmen</item>
+        <item>Golf</item>
+        <item>Skifahren</item>
+    </string-array>
+
+    <string-array name="words_vehicle">
+        <item>Auto</item>
+        <item>Motorrad</item>
+        <item>Fahrrad</item>
+        <item>Bus</item>
+        <item>Lastwagen</item>
+        <item>Zug</item>
+        <item>Hubschrauber</item>
+        <item>Boot</item>
+        <item>U-Bahn</item>
+        <item>Flugzeug</item>
+        <item>Roller</item>
+    </string-array>
+
+    <string-array name="words_music_genre">
+        <item>Pop</item>
+        <item>Rock</item>
+        <item>Jazz</item>
+        <item>Hip-Hop</item>
+        <item>Rap</item>
+        <item>Country</item>
+        <item>Blues</item>
+        <item>Klassik</item>
+        <item>Reggae</item>
+        <item>Elektronik</item>
+        <item>Indie</item>
+        <item>Folk</item>
+    </string-array>
+
+    <string-array name="words_movie_genre">
+        <item>Action</item>
+        <item>Komödie</item>
+        <item>Drama</item>
+        <item>Thriller</item>
+        <item>Horror</item>
+        <item>Science Fiction</item>
+        <item>Dokument
+
+arfilm</item>
+        <item>Romantik</item>
+    </string-array>
+
+    <string-array name="words_food">
+        <item>Pizza</item>
+        <item>Hamburger</item>
+        <item>Sushi</item>
+        <item>Pasta</item>
+        <item>Steak</item>
+        <item>Eiscreme</item>
+        <item>Salat</item>
+        <item>Curry</item>
+        <item>Burrito</item>
+    </string-array>
+
+    <string-array name="words_fruit">
+        <item>Apfel</item>
+        <item>Banane</item>
+        <item>Kirsche</item>
+        <item>Orange</item>
+        <item>Weintraube</item>
+        <item>Wassermelone</item>
+        <item>Erdbeere</item>
+    </string-array>
+
+    <string-array name="words_weather">
+        <item>Sonnig</item>
+        <item>Bewölkt</item>
+        <item>Regnerisch</item>
+        <item>Windschief</item>
+        <item>Stürmisch</item>
+        <item>Schnee</item>
+        <item>Neblig</item>
+        <item>Hagelsturm</item>
+        <item>Tornado</item>
+        <item>Schneesturm</item>
+        <item>Nieselregen</item>
+    </string-array>
+
+    <string-array name="words_instrument">
+        <item>Gitarre</item>
+        <item>Klavier</item>
+        <item>Schlagzeug</item>
+        <item>Violine</item>
+        <item>Saxophon</item>
+        <item>Trompete</item>
+        <item>Flöte</item>
+        <item>Klarinette</item>
+        <item>Akkordeon</item>
+        <item>Mundharmonika</item>
+    </string-array>
+
+    <string-array name="words_emotion">
+        <item>Fröhlich</item>
+        <item>Traurig</item>
+        <item>Wütend</item>
+        <item>Aufgeregt</item>
+        <item>Ängstlich</item>
+        <item>Überrascht</item>
+        <item>Ruhig</item>
+        <item>Zufrieden</item>
+        <item>Dankbar</item>
+        <item>Nostalgisch</item>
+        <item>Nachdenklich</item>
+    </string-array>
+
+
+    <string name="app_name">Galgenmännchen</string>
+    <string name="PLAY_BUTTON">Spielen</string>
+    <string name="SETTINGS_BUTTON">Einstellungen</string>
+    <string name="PLAY_AGAIN_BUTTON_DIALOG">Erneut spielen</string>
+    <string name="QUIT_GAME_BUTTON_DIALOG">Beenden</string>
+    <string name="GAME_OVER_TEXT_DIALOG">Spiel vorbei!</string>
+    <string name="REVEAL_WORD_TEXT_DIALOG">"Das Wort war:\n%s"</string>
+    <string name="TIP_TEXT">"Tipp: %s"</string>
+    <string name="WIN_COUNT_TEXT">Treffer: %d</string>
+    <string name="SHOW_HOW_MANY_HITS">Treffer-Serie:\n%d</string>
+    <string name="QUIT_GAME_CONFIRMATION_TEXT_TITLE">Zur Startseite gehen?</string>
+    <string name="QUIT_GAME_CONFIRMATION_TEXT_DESCRIPTION">Du verlierst dein aktuelles Spiel</string>
+    <string name="YES_TEXT">Ja</string>
+    <string name="NO_TEXT">Nein</string>
+    <string name="INSTRUCTIONS_TITLE">Anleitung</string>
+    <string name="GO_BACK_TEXT">Zurück</string>
+    <string name="DIALOG_TIP_TITLE">Tipp</string>
+    <string name="DIALOG_TIP_TEXT">Wenn das Wort nicht auf den Bildschirm passt, kannst du es horizontal ziehen oder im Querformat spielen!</string>
+    <string name="QUIT_HOME_TITLE">Spiel verlassen?</string>
+
 
     <string-array name="alphabet_array" tools:ignore="InconsistentArrays">
         <item>a</item>

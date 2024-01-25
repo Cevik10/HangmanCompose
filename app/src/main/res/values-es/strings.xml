@@ -1,14 +1,244 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <string name="app_name">Hangman</string>
+    <string name="category_animal">Animal</string>
+    <string name="category_body_part">Parte del Cuerpo</string>
+    <string name="category_country">País</string>
+    <string name="category_color">Color</string>
+    <string name="category_profession">Profesión</string>
+    <string name="category_sport">Deporte</string>
+    <string name="category_vehicle">Vehículo</string>
+    <string name="category_music_genre">Género Musical</string>
+    <string name="category_movie_genre">Género de Película</string>
+    <string name="category_food">Comida</string>
+    <string name="category_fruit">Fruta</string>
+    <string name="category_weather">Tiempo</string>
+    <string name="category_instrument">Instrumento</string>
+    <string name="category_emotion">Emoción</string>
 
-    <string-array name="hangman_words">
-        <item>espaniol spanish</item>
-        <item>espaniol ww</item>
-        <item>spain  ww</item>
-        <!-- Add more English words as needed -->
+    <string-array name="all_categories">
+        <item>Animal</item>
+        <item>País</item>
+        <item>Color</item>
+        <item>Profesión</item>
+        <item>Deporte</item>
+        <item>Vehículo</item>
+        <item>Género Musical</item>
+        <item>Género de Película</item>
+        <item>Comida</item>
+        <item>Fruta</item>
+        <item>Parte del Cuerpo</item>
+        <item>Tiempo</item>
+        <item>Instrumento</item>
+        <item>Emoción</item>
     </string-array>
+
+    <string-array name="words_animal">
+        <item>gato</item>
+        <item>perro</item>
+        <item>elefante</item>
+        <item>jirafa</item>
+        <item>león</item>
+        <item>tigre</item>
+        <item>oso</item>
+        <item>cebra</item>
+        <item>mono</item>
+        <item>hipopótamo</item>
+        <item>canguro</item>
+        <item>pingüino</item>
+        <item>cocodrilo</item>
+    </string-array>
+
+    <string-array name="words_body_part">
+        <item>cabeza</item>
+        <item>hombro</item>
+        <item>rodilla</item>
+        <item>dedo del pie</item>
+    </string-array>
+
+    <string-array name="words_country">
+        <item>Afganistán</item>
+        <item>Albania</item>
+        <item>Argelia</item>
+        <item>Argentina</item>
+        <item>Australia</item>
+        <item>Austria</item>
+        <item>Azerbaiyán</item>
+        <item>Bangladesh</item>
+        <item>Bélgica</item>
+        <item>Bolivia</item>
+        <item>Brasil</item>
+        <item>Bulgaria</item>
+        <item>Canadá</item>
+        <item>Chile</item>
+        <item>China</item>
+    </string-array>
+
+    <string-array name="words_color">
+        <item>rojo</item>
+        <item>azul</item>
+        <item>verde</item>
+        <item>amarillo</item>
+        <item>morado</item>
+        <item>naranja</item>
+        <item>rosa</item>
+        <item>negro</item>
+        <item>blanco</item>
+    </string-array>
+
+    <string-array name="words_profession">
+        <item>médico</item>
+        <item>maestro</item>
+        <item>ingeniero</item>
+        <item>chef</item>
+        <item>actor</item>
+        <item>piloto</item>
+        <item>músico</item>
+        <item>abogado</item>
+    </string-array>
+
+    <string-array name="words_sport">
+        <item>fútbol</item>
+        <item>básquetbol</item>
+        <item>tenis</item>
+        <item>béisbol</item>
+        <item>vóleybol</item>
+        <item>natación</item>
+        <item>golf</item>
+        <item>esquí</item>
+    </string-array>
+
+    <string-array name="words_vehicle">
+        <item>coche</item>
+        <item>motocicleta</item>
+        <item>bicicleta</item>
+        <item>autobús</item>
+        <item>camión</item>
+        <item>tren</item>
+        <item>helicóptero</item>
+        <item>barco</item>
+        <item>metro</item>
+        <item>avión</item>
+        <item>patinete</item>
+    </string-array>
+
+    <string-array name="words_music_genre">
+        <item>pop</item>
+        <item>rock</item>
+        <item>jazz</item>
+        <item>hip-hop</item>
+        <item>rap</item>
+        <item>country</item>
+        <item>blues</item>
+        <item>clásica</item>
+        <item>reggae</item>
+        <item>electrónica</item>
+        <item>indie</item>
+        <item>folk</item>
+    </string-array>
+
+    <string-array name="words_movie_genre">
+        <item>acción</item>
+        <item>comedia</item>
+        <item>drama</item>
+        <item>suspenso</item>
+        <item>terror</item>
+        <item>ciencia ficción</item>
+        <item>documental</item>
+        <item>romance</item>
+    </string-array>
+
+    <string-array name="words_food">
+        <item>pizza</item>
+        <item>hamburguesa</item>
+        <item>sushi</item>
+        <item>pasta</item>
+        <item>bistec</item>
+        <item>helado</item>
+        <item>ensalada</item>
+        <item>curry</item>
+        <item>burrito</item>
+    </string-array>
+
+    <string-array name="words_fruit">
+        <item>manzana</item>
+        <item>plátano</item>
+        <item>cereza</item>
+        <item>naranja</item>
+        <item>uva</item>
+        <item>sandía</item>
+        <item>fresa</item>
+        <item>pera</item>
+        <item>kiwi</item>
+        <item>mango</item>
+        <item>piña</item>
+        <item>arándano</item>
+        <item>frambuesa</item>
+        <item>durazno</item>
+    </string-array>
+
+    <string-array name="words_weather">
+        <item>soleado</item>
+        <item>nublado</item>
+        <item>lluvioso</item>
+        <item>ventoso</item>
+        <item>tormentoso</item>
+        <item>nevado</item>
+        <item>con neblina</item>
+        <item>granizo</item>
+        <item>tornado</item>
+        <item>tormenta de nieve</item>
+        <item>llovizna</item>
+    </string-array>
+
+    <string-array name="words_instrument">
+        <item>guitarra</item>
+        <item>piano</item>
+        <item>batería</item>
+        <item>violín</item>
+        <item>saxofón</item>
+        <item>trompeta</item>
+        <item>flauta</item>
+        <item>clarinete</item>
+        <item>acordeón</item>
+        <item>armónica</item>
+    </string-array>
+
+    <string-array name="words_emotion">
+        <item>feliz</item>
+        <item>triste</item>
+        <item>enojado</item>
+        <item>emocionado</item>
+        <item>asustado</item>
+        <item>sorprendido</item>
+        <item>tranquilo</item>
+        <item>contento</item>
+        <item>agradecido</item>
+        <item>nostálgico</item>
+        <item>pensativo</item>
+    </string-array>
+
+
+    <string name="app_name">Ahorcado</string>
+    <string name="PLAY_BUTTON">Jugar</string>
+    <string name="SETTINGS_BUTTON">Configuración</string>
+    <string name="PLAY_AGAIN_BUTTON_DIALOG">Jugar de nuevo</string>
+    <string name="QUIT_GAME_BUTTON_DIALOG">Salir</string>
+    <string name="GAME_OVER_TEXT_DIALOG">¡Juego Terminado!</string>
+    <string name="REVEAL_WORD_TEXT_DIALOG">"La palabra era:\n%s"</string>
+    <string name="TIP_TEXT">"Consejo: %s"</string>
+    <string name="WIN_COUNT_TEXT">Aciertos: %d</string>
+    <string name="SHOW_HOW_MANY_HITS">Racha de aciertos:\n%d</string>
+    <string name="QUIT_GAME_CONFIRMATION_TEXT_TITLE">¿Ir a la página principal?</string>
+    <string name="QUIT_GAME_CONFIRMATION_TEXT_DESCRIPTION">Perderás tu juego actual</string>
+    <string name="YES_TEXT">Sí</string>
+    <string name="NO_TEXT">No</string>
+    <string name="INSTRUCTIONS_TITLE">Instrucciones</string>
+    <string name="GO_BACK_TEXT">Volver</string>
+    <string name="DIALOG_TIP_TITLE">Consejo</string>
+    <string name="DIALOG_TIP_TEXT">Si la palabra no cabe en la pantalla, ¡puedes arrastrarla horizontalmente o jugar en modo apaisado!</string>
+    <string name="QUIT_HOME_TITLE">¿Abandonar el juego?</string>
+
 
     <string-array name="alphabet_array" tools:ignore="InconsistentArrays">
         <item>a</item>
