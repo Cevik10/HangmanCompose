@@ -2,10 +2,8 @@ package com.hakancevik.hangman.presentation.game_home
 
 
 import android.content.Context
-import android.content.Intent
 import android.content.res.Configuration
 import androidx.compose.animation.AnimatedContent
-import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.SizeTransform
 import androidx.compose.animation.animateColor
 import androidx.compose.animation.core.LinearEasing
@@ -24,6 +22,7 @@ import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
 import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -74,10 +73,11 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.hakancevik.hangman.R
-import com.hakancevik.hangman.presentation.MainActivity
 import com.hakancevik.hangman.presentation.game_home.components.GameOverDialog
 import com.hakancevik.hangman.presentation.game_home.components.HangmanBody
+import com.hakancevik.hangman.presentation.game_home.components.UpdateButtonTransitionData
 import com.hakancevik.hangman.ui.theme.HangmanTheme
+import com.hakancevik.hangman.ui.theme.PastelGreen
 import java.text.Normalizer
 import java.util.Locale
 
@@ -93,10 +93,10 @@ fun GameScreen(
 
     val context = LocalContext.current
 
-    setLanguage(context,selectedLanguage)
+    setLanguage(context, selectedLanguage)
     DisposableEffect(selectedLanguage) {
         viewModel.changeLanguage(selectedLanguage)
-        onDispose { /* Dispose logic, if needed */ }
+        onDispose {}
     }
 
     val gameUiState by viewModel.uiState.collectAsState()
@@ -151,12 +151,15 @@ private fun GameContent(
             hitsCount = winCount
         )
     }
-    //BackToHomeDialog(onNavigateUp)
+
     Column(
         modifier = Modifier
             .padding(horizontal = 16.dp)
             .fillMaxSize(),
     ) {
+
+
+        Spacer(modifier = Modifier.size(16.dp))
 
         LivesLeftRow(
             livesCount
@@ -182,6 +185,8 @@ private fun GameContent(
         }
 
         HangmanBody(lives = livesCount)
+
+        Spacer(modifier = Modifier.size(16.dp))
     }
 }
 
@@ -260,7 +265,8 @@ private fun WordLetter(
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.onSurfaceVariant,
             contentColor = MaterialTheme.colorScheme.surface
-        )
+        ),
+        border = BorderStroke(2.dp, PastelGreen)
     ) {
         Text(
             modifier = Modifier
@@ -415,11 +421,6 @@ fun TopAppBarRow(
         mutableStateOf(false)
     }
 
-//    if (showActionFromInfoIcon) {
-//        TipDialog {
-//            showActionFromInfoIcon = false
-//        }
-//    }
 
 
     Row(modifier = modifier.fillMaxWidth()) {
@@ -441,46 +442,6 @@ fun TopAppBarRow(
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun BackIconButtonPreview() {
-    HangmanTheme {
-        TopAppBarRow(onNavigateUp = {}) { true }
-    }
-}
-
-
-enum class ButtonState { Correct, Incorrect }
-
-private class ButtonTransitionData(
-    color: State<Color>
-) {
-    val color by color
-}
-
-@Composable
-private fun updateButtonTransitionData(
-    checkCorrectness: Boolean
-): ButtonTransitionData {
-
-    val targetState = when (checkCorrectness) {
-        true -> ButtonState.Correct
-        false -> ButtonState.Incorrect
-    }
-    val transition = updateTransition(
-        targetState = targetState,
-        label = "button state"
-    )
-    val color = transition.animateColor(
-        label = "color"
-    ) { state ->
-        when (state) {
-            ButtonState.Correct -> MaterialTheme.colorScheme.secondary
-            ButtonState.Incorrect -> MaterialTheme.colorScheme.error
-        }
-    }
-    return remember(transition) { ButtonTransitionData(color) }
-}
 
 @Composable
 private fun KeyboardKey(
@@ -499,7 +460,7 @@ private fun KeyboardKey(
         correctLetters
     ) { correctLetters.contains(letterFromButton.lowercaseChar()) }
 
-    val transitionData = updateButtonTransitionData(checkCorrectness = checkCorrectness)
+    val transitionData = UpdateButtonTransitionData(checkCorrectness = checkCorrectness)
 
     TextButton(
         onClick = {
@@ -525,7 +486,7 @@ private fun KeyboardKey(
 }
 
 
-fun setLanguage(context: Context,languageCode: String) {
+fun setLanguage(context: Context, languageCode: String) {
     val locale = Locale(languageCode)
     Locale.setDefault(locale)
 

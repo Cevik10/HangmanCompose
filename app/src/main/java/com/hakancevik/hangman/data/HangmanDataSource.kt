@@ -25,7 +25,6 @@ class HangmanDataSource(private val context: Context) {
     }
 
 
-
     fun getRandomWordByCategoryAndLanguage(category: String, languageCode: String): String {
         setLanguage(languageCode)
 
