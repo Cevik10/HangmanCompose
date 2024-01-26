@@ -9,7 +9,6 @@ object StringUtil {
     }
 
     fun normalizeWord(word: String): String {
-//      regex to select all characters that are not in the ASCII set.
         val regex = "[^\\p{ASCII}]".toRegex()
         return Normalizer.normalize(word, Normalizer.Form.NFD).replace(regex, "")
     }

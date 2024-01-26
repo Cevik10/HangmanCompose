@@ -1,12 +1,7 @@
 package com.hakancevik.hangman.presentation.game_home
 
-import android.content.Context
-import android.content.res.Configuration
 import androidx.lifecycle.ViewModel
-import com.hakancevik.hangman.R
-import com.hakancevik.hangman.data.AlphabetDataSource
 import com.hakancevik.hangman.data.HangmanDataSource
-import com.hakancevik.hangman.data.allWords
 import com.hakancevik.hangman.presentation.util.StringUtil
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -68,10 +63,6 @@ class GameViewModel @Inject constructor(
         }
     }
 
-
-    fun onLanguageChanged(newLanguageCode: String) {
-        changeLanguage(newLanguageCode)
-    }
 
 
     private fun isLetterGuessCorrect(letterFromButton: Char): Boolean? {
