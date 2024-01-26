@@ -107,6 +107,7 @@ dependencies {
     //kapt ("androidx.hilt:hilt-compiler:2.44.2")
     //implementation ("androidx.hilt:hilt-navigation-compose:1.1.0")
 
+    implementation("androidx.core:core-splashscreen:1.0.1")
 
 
 }

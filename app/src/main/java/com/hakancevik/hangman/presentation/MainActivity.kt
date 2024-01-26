@@ -1,10 +1,14 @@
 package com.hakancevik.hangman.presentation
 
+import android.animation.ObjectAnimator
 import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
+import android.view.View
+import android.view.animation.OvershootInterpolator
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -20,6 +24,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.animation.doOnEnd
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -36,8 +42,18 @@ import java.util.Locale
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    private val viewModel by viewModels<MainViewModel>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        installSplashScreen().apply {
+            setKeepOnScreenCondition {
+                !viewModel.isReady.value
+            }
+        }
+
+
         setContent {
             HangmanTheme {
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
@@ -70,12 +86,6 @@ class MainActivity : ComponentActivity() {
                             )
 
 
-                            SetLocale(selectedLanguage,this@MainActivity)
-
-
-
-
-
                         }
                     }
                 }
@@ -85,33 +95,8 @@ class MainActivity : ComponentActivity() {
 }
 
 
-fun SetLocale(languageCode: String, context: Context) {
-    val locale = Locale(languageCode)
-    Locale.setDefault(locale)
 
-    val resources = context.resources
-    val configuration = Configuration(resources.configuration)
-    configuration.setLocale(locale)
-    resources.updateConfiguration(configuration, resources.displayMetrics)
-}
 
-@Composable
-fun LanguageButton(letter: Char, onLetterClick: (Char) -> Unit) {
-    Button(
-        onClick = { onLetterClick(letter) },
-
-        shape = CircleShape,
-        modifier = Modifier
-            .padding(4.dp)
-            .size(48.dp)
-    ) {
-        Text(
-            text = "asa",
-            style = MaterialTheme.typography.bodyMedium,
-            color = Color.Red
-        )
-    }
-}
 
 
 @Preview(showBackground = true)

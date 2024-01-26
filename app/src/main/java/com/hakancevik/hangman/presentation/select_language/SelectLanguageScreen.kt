@@ -17,6 +17,8 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -25,22 +27,48 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.hakancevik.hangman.R
 import com.hakancevik.hangman.presentation.select_language.components.LanguageRadioButton
+import com.hakancevik.hangman.presentation.util.CustomSharedPreferences
 import com.hakancevik.hangman.presentation.util.Screen
 import com.hakancevik.hangman.ui.theme.HangmanTheme
+import java.util.Locale
 
 
 @Composable
 fun SelectLanguageScreen(
     navController: NavController,
+    viewModel: SelectLanguageViewModel = hiltViewModel()
 ) {
-    var selectedLanguage by remember { mutableStateOf<String?>("en") }
+    val context = LocalContext.current
 
+
+//    val sharedPreferences = CustomSharedPreferences(context)
+//    val savedLanguage = sharedPreferences.getSelectedLanguage()
+//
+//    if (savedLanguage != null) {
+//        LaunchedEffect(Unit) {
+//            navController.navigate(
+//                Screen.GameScreen.route +
+//                        "?selectedLanguage=${savedLanguage}"
+//            ) {
+//                // Clear the back stack when navigating to GameScreen
+//                popUpTo(Screen.SelectLanguageScreen.route) {
+//                    inclusive = true
+//                }
+//            }
+//        }
+//        return
+//    }
+
+
+    val selectedLanguageState = viewModel.selectedLanguage.collectAsState()
 
     Column(
         modifier = Modifier
@@ -60,54 +88,58 @@ fun SelectLanguageScreen(
             LanguageRadioButton(
                 language = "English",
                 flagImageResId = R.drawable.usa,
-                isSelected = selectedLanguage == "en"
+                isSelected = selectedLanguageState.value == "en"
             ) {
-                selectedLanguage = "en"
+                viewModel.setSelectedLanguage("en")
             }
             LanguageRadioButton(
                 language = "Español",
                 flagImageResId = R.drawable.spain,
-                isSelected = selectedLanguage == "es"
+                isSelected = selectedLanguageState.value == "es"
             ) {
-                selectedLanguage = "es"
+                viewModel.setSelectedLanguage("es")
             }
 
             LanguageRadioButton(
                 language = "Turkish",
                 flagImageResId = R.drawable.turkey,
-                isSelected = selectedLanguage == "tr"
+                isSelected = selectedLanguageState.value == "tr"
             ) {
-                selectedLanguage = "tr"
+                viewModel.setSelectedLanguage("tr")
             }
 
             LanguageRadioButton(
                 language = "Deutsch",
                 flagImageResId = R.drawable.germany,
-                isSelected = selectedLanguage == "de"
+                isSelected = selectedLanguageState.value == "de"
             ) {
-                selectedLanguage = "de"
+                viewModel.setSelectedLanguage("de")
             }
 
             LanguageRadioButton(
                 language = "Arabic",
                 flagImageResId = R.drawable.arabic,
-                isSelected = selectedLanguage == "ar"
+                isSelected = selectedLanguageState.value == "ar"
             ) {
-                selectedLanguage = "ar"
+                viewModel.setSelectedLanguage("ar")
             }
-
-            // Add more languages as needed
         }
 
         Spacer(modifier = Modifier.height(16.dp))
 
         Button(
             onClick = {
-                selectedLanguage?.let {
+                selectedLanguageState.value?.let { selectedLanguage ->
+//                    sharedPreferences.saveSelectedLanguage(selectedLanguage)
+
                     navController.navigate(
                         Screen.GameScreen.route +
-                                "?selectedLanguage=${it}"
-                    )
+                                "?selectedLanguage=$selectedLanguage"
+                    ) {
+//                        popUpTo(Screen.SelectLanguageScreen.route) {
+//                            inclusive = true
+//                        }
+                    }
                 }
             },
             modifier = Modifier
@@ -120,6 +152,7 @@ fun SelectLanguageScreen(
         }
     }
 }
+
 
 @Preview(showBackground = true)
 @Composable

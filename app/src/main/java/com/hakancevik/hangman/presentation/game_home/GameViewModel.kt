@@ -68,7 +68,6 @@ class GameViewModel @Inject constructor(
         }
     }
 
-    // Diğer metodlar...
 
     fun onLanguageChanged(newLanguageCode: String) {
         changeLanguage(newLanguageCode)
@@ -130,6 +129,16 @@ class GameViewModel @Inject constructor(
     }
 
     private fun increaseStreakCount() = if (!isGameOver) ++_currentStreakCount else 0
+
+
+    fun resetGame() {
+        _currentStreakCount = 0
+        _uiState.value = GameUiState(streakCount = _currentStreakCount)
+        lettersGuessed.clear()
+        correctLetters.clear()
+        wrongLetters.clear()
+        _currentLetterGuessed = ' '
+    }
 
 
 }

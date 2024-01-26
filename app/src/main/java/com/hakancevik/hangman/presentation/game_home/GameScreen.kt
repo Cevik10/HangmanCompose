@@ -22,6 +22,7 @@ import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
 import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -42,12 +43,15 @@ import androidx.compose.material.icons.rounded.Info
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.ShapeDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.Stable
@@ -62,10 +66,14 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -73,10 +81,12 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.hakancevik.hangman.R
+import com.hakancevik.hangman.presentation.game_home.components.ChangeLanguageDialog
 import com.hakancevik.hangman.presentation.game_home.components.GameOverDialog
 import com.hakancevik.hangman.presentation.game_home.components.HangmanBody
 import com.hakancevik.hangman.presentation.game_home.components.UpdateButtonTransitionData
 import com.hakancevik.hangman.ui.theme.HangmanTheme
+import com.hakancevik.hangman.ui.theme.Lavender
 import com.hakancevik.hangman.ui.theme.PastelGreen
 import java.text.Normalizer
 import java.util.Locale
@@ -99,9 +109,12 @@ fun GameScreen(
         onDispose {}
     }
 
+
     val gameUiState by viewModel.uiState.collectAsState()
 
     GameContent(
+        viewModel = viewModel,
+        context = context,
         onPopBack = onPopBack,
         onNavigateUp = onNavigateUp,
         wordChosen = gameUiState.wordRandomlyChosen,
@@ -124,8 +137,11 @@ fun GameScreen(
 
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun GameContent(
+    viewModel: GameViewModel,
+    context: Context,
     wordChosen: String?,
     correctLetters: Set<Char>,
     livesCount: Int,
@@ -140,6 +156,19 @@ private fun GameContent(
     onPopBack: () -> Boolean
 ) {
 
+    val showDialog = remember { mutableStateOf(false) }
+
+    if (showDialog.value) {
+        ChangeLanguageDialog(
+            onLanguageSelected = { changeNewLanguage ->
+//                viewModel.resetGame()
+//                viewModel.changeLanguage(changeNewLanguage)
+            },
+            onDismiss = {
+                showDialog.value = false
+            }
+        )
+    }
 
     if (isWordCorrectlyGuessed()) {
         resetGame()
@@ -152,42 +181,64 @@ private fun GameContent(
         )
     }
 
-    Column(
-        modifier = Modifier
-            .padding(horizontal = 16.dp)
-            .fillMaxSize(),
-    ) {
 
-
-        Spacer(modifier = Modifier.size(16.dp))
-
-        LivesLeftRow(
-            livesCount
-        )
-        Column(modifier = Modifier.fillMaxWidth()) {
-            ChosenWordRow(
-                wordChosen,
-                correctLetters
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { AppTitle(text = stringResource(id = R.string.app_name)) },
+                actions = {
+                    IconButton(onClick = { showDialog.value = true }) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.ic_menu),
+                            contentDescription = "Menu"
+                        )
+                    }
+                }
             )
-            TipAndCountTextRow(tip = category, winCount)
+        },
 
 
-            val alphabetArrayRes = R.array.alphabet_array
-            val alphabetArray: Array<String> = LocalContext.current.resources.getStringArray(alphabetArrayRes)
-            val alphabetList: List<Char> = alphabetArray.flatMap { it.toList() }
+        content = { padding ->
 
-            KeyboardLayout(
-                alphabetList = alphabetList,
-                checkUserGuess = { checkUserGuess(it) },
-                correctLetters = correctLetters,
-                usedLetters = usedLetters,
-            )
+            Column(
+                modifier = Modifier
+                    .padding(horizontal = 16.dp)
+                    .fillMaxSize(),
+            ) {
+
+                Spacer(modifier = Modifier.size(60.dp))
+
+                LivesLeftRow(
+                    livesCount
+                )
+                Column(modifier = Modifier.fillMaxWidth()) {
+                    ChosenWordRow(
+                        wordChosen,
+                        correctLetters
+                    )
+                    TipAndCountTextRow(tip = category, winCount)
+
+
+                    val alphabetArrayRes = R.array.alphabet_array
+                    val alphabetArray: Array<String> = LocalContext.current.resources.getStringArray(alphabetArrayRes)
+                    val alphabetList: List<Char> = alphabetArray.flatMap { it.toList() }
+
+                    KeyboardLayout(
+                        alphabetList = alphabetList,
+                        checkUserGuess = { checkUserGuess(it) },
+                        correctLetters = correctLetters,
+                        usedLetters = usedLetters,
+                    )
+                }
+
+                HangmanBody(lives = livesCount)
+
+                Spacer(modifier = Modifier.size(16.dp))
+            }
         }
+    )
 
-        HangmanBody(lives = livesCount)
 
-        Spacer(modifier = Modifier.size(16.dp))
-    }
 }
 
 
@@ -368,6 +419,7 @@ private fun KeyboardLayout(
         columns = GridCells.Adaptive(40.dp),
         modifier = Modifier
             .fillMaxWidth()
+
     ) {
         items(alphabetList.size) {
             val keyLetter = alphabetList[it]
@@ -469,6 +521,7 @@ private fun KeyboardKey(
         enabled = isEnabled,
         shape = ShapeDefaults.ExtraLarge,
         colors = ButtonDefaults.buttonColors(
+            containerColor = Lavender,
             disabledContainerColor = transitionData.color,
             disabledContentColor = MaterialTheme.colorScheme.outline
         ),
@@ -494,6 +547,20 @@ fun setLanguage(context: Context, languageCode: String) {
     configuration.setLocale(locale)
 
     context.resources.updateConfiguration(configuration, context.resources.displayMetrics)
+}
+
+@Composable
+fun AppTitle(text: String) {
+    Text(
+        text = text,
+        fontFamily = FontFamily.SansSerif,
+        fontWeight = FontWeight.Bold,
+        fontSize = 24.sp,
+        modifier = Modifier
+            .padding(8.dp)
+            .fillMaxWidth(),
+        textAlign = TextAlign.Start
+    )
 }
 
 /*
